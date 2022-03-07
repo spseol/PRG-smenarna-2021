@@ -2,7 +2,7 @@
 
 from os.path import basename, splitext
 import tkinter as tk
-from tkinter import Listbox, END
+from tkinter import Listbox, Radiobutton, IntVar, StringVar, END
 
 # from tkinter import ttk
 
@@ -33,6 +33,17 @@ class Application(tk.Tk):
         self.btn.pack()
         self.btn2 = tk.Button(self, text="About", command=self.about)
         self.btn2.pack()
+
+        self.varOperace = StringVar()
+        self.rbtNakup = Radiobutton(
+            self, text="Nákup", variable=self.varOperace, value="nakup"
+        )
+        self.rbtProdej = Radiobutton(
+            self, text="Prodej", variable=self.varOperace, value="prodej"
+        )
+        self.rbtNakup.pack()
+        self.rbtProdej.pack()
+        self.varOperace.set("prodej")
 
         self.lstBx = Listbox(self)
         self.lstBx.pack()
